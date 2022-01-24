@@ -24,9 +24,7 @@ class Mehrwertsteuer extends Component {
 
     render() {
       return (
-
           <Label>Mehrwertsteuer: {this.state.mehrwertsteuer}</Label>
-
       );
     }
   }

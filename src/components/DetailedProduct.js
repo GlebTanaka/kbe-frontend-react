@@ -1,5 +1,7 @@
 import { Component } from "react";
 import AppNavbar from "./AppNavbar";
+import Map from "./Map";
+
 
 class DetailedProduct extends Component {
     constructor(props){
@@ -11,9 +13,10 @@ class DetailedProduct extends Component {
     };
 
     async componentDidMount() {
-      const response = await fetch('http://localhost:8082/api/v1/gateway/product/' + this.props.match.params.id);
-      const body = await response.json();
-      this.setState({product: body});
+       const response = await fetch('http://localhost:8082/api/v1/gateway/product/' + this.props.match.params.id);
+       const body = await response.json();
+       this.setState({product: body});
+       console.log("D"+body.lat);
     }
 
     render() {
@@ -62,12 +65,18 @@ class DetailedProduct extends Component {
                         <td>Liefer Datum:</td>
                         <td>{product.deliveryDate}</td>
                     </tr>
-
+                    <tr>
+                        
+                    </tr>
                 </table>
-
               </div>
+                <Map lat={product.lat} lng={product.lng}/>
+              
+              
             </header>
+            
           </div>
+          
       );
     }
   }
