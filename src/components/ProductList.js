@@ -7,13 +7,13 @@ class ProductList extends Component {
     state = {
       products: []
     };
-  
+
     async componentDidMount() {
-      const response = await fetch('/product');
+      const response = await fetch('http://localhost:8082/api/v1/gateway/product');
       const body = await response.json();
       this.setState({products: body});
     }
-  
+
     render() {
       const {products} = this.state;
       return (
@@ -24,7 +24,7 @@ class ProductList extends Component {
                 <h2>Produkte</h2>
                 <ButtonGroup vertical>
                 {products.map(product => <Button size="lg" tag={Link} to={"/product/" + product.id}>{product.name}</Button>
-                    
+
                 )}
                 </ButtonGroup>
               </div>

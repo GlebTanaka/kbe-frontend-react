@@ -2,7 +2,6 @@
   "name": "kbe-frontend-react",
   "version": "0.1.0",
   "private": true,
-  "proxy":"http://localhost:8082/api/v1/gateway",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",

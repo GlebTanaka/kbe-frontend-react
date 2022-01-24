@@ -11,17 +11,17 @@ class Mehrwertsteuer extends Component {
     };
 
     async componentDidMount() {
-        const response = await fetch('/calculatemehrwertsteuer?preis=' + this.props.price);
+        const response = await fetch('http://localhost:8082/api/v1/gateway/calculatemehrwertsteuer?preis=' + this.props.price);
         const body = await response.json();
         this.setState({mehrwertsteuer: body});
     }
 
     async componentDidUpdate(){
-        const response = await fetch('/calculatemehrwertsteuer?preis=' + this.props.price);
+        const response = await fetch('http://localhost:8082/api/v1/gateway/calculatemehrwertsteuer?preis=' + this.props.price);
         const body = await response.json();
         this.setState({mehrwertsteuer: body});
     }
-  
+
     render() {
       return (
 

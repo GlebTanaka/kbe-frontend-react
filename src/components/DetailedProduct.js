@@ -9,13 +9,13 @@ class DetailedProduct extends Component {
     state = {
         product: []
     };
-  
+
     async componentDidMount() {
-      const response = await fetch('/product/' + this.props.match.params.id);
+      const response = await fetch('http://localhost:8082/api/v1/gateway/product/' + this.props.match.params.id);
       const body = await response.json();
       this.setState({product: body});
     }
-  
+
     render() {
       const {product} = this.state;
       return (
@@ -41,7 +41,7 @@ class DetailedProduct extends Component {
                         <td>Preis (inclusive Mehrwertsteuer):</td>
                         <td>{product.price + product.mehrwertsteuer + "€"}</td>
                     </tr>
-  
+
                     <tr>
                         <td>Adresse:</td>
                         <td>{product.formattedAddress}</td>
@@ -62,9 +62,9 @@ class DetailedProduct extends Component {
                         <td>Liefer Datum:</td>
                         <td>{product.deliveryDate}</td>
                     </tr>
-                    
+
                 </table>
-                
+
               </div>
             </header>
           </div>
